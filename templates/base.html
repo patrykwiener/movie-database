@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+    {% block styles %}{% endblock %}
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+    <!-- Font Awesome JavaScript-->
+    <script src="https://kit.fontawesome.com/215dedd947.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="main-container">
+
+    {% include "nav_menu.html" %}
+
+    <section class="main_section">
+        {% block content %}{% endblock %}
+    </section>
+
+    {% include "footer.html" %}
+
+</div>
+
+<script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
+
+{% block javascript %}{% endblock %}
+
+</body>
+</html>
