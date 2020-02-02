@@ -39,6 +39,13 @@
                                     <h5 class="mb-4"><b>{{ object.title }}</b> ({{ object.year }})</h5>
 
                                     <a class="btn btn-success">Read more</a>
+                                    {% if object.imdb_id in favourites %}
+                                        <a id="{{ object.imdb_id }}" class="btn btn-warning"
+                                           onclick="addToFavourites(this)">Added to Favourites</a>
+                                    {% else %}
+                                        <a id="{{ object.imdb_id }}" class="btn btn-light"
+                                           onclick="addToFavourites(this)">Add to Favourites</a>
+                                    {% endif %}
 
                                 </div>
 
@@ -60,4 +67,8 @@
 
 {% block paginator %}
     {% include "pagination.html" %}
+{% endblock %}
+
+{% block javascript %}
+    <script src={% static 'js/favourite.js' %}></script>
 {% endblock %}
