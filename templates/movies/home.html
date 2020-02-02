@@ -10,8 +10,9 @@
         <div class="d-flex align-items-center">
             <div class="container text-center">
                 {% if user.is_authenticated %}
-                    <h1>Hi {{ user.username }}!</h1>
-                    <p>You are already signed in!</p>
+                    <form action="{% url 'movies:search_results' %}" method="get">
+                        <input name="q" type="text" placeholder="Search...">
+                    </form>
                 {% else %}
                     <h1>Search your favourite movies!</h1>
                     <p>Let's get started by signing up.</p>
