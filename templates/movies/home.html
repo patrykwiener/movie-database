@@ -12,13 +12,13 @@
 {% block content %}
     <div class="container text-left">
         <div class="d-flex align-items-center">
-            <div class="container">
+            <div class="container text-center">
                 {% if user.is_authenticated %}
                     
                     <form class="form-inline d-flex justify-content-center active-blue"
                           action="{% url 'movies:search_results' %}" method="get">
-                        <input class="form-control mr-3 w-50" type="text" name="m" placeholder="Search..."
-                               aria-label="Search">
+                        <input class="form-control mr-3 w-50" type="text" name="t" placeholder="Search..."
+                               aria-label="Search" required="required">
                         <i class="fas fa-search" aria-hidden="true"></i>
                     </form>
 
