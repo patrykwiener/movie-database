@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.users.apps.UsersConfig',
+    'apps.accounts.apps.AccountsConfig',
+    'apps.movies.apps.MoviesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,8 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'movies:home'
+LOGOUT_REDIRECT_URL = 'movies:home'
 LOGIN_URL = 'login'
 
 AUTH_USER_MODEL = 'users.CustomUser'
