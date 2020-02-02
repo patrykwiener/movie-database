@@ -10,8 +10,16 @@
         {% if user.is_authenticated %}
             <p>Hi {{ user.username }}</p>
         {% else %}
-            <p>You are not logged in</p>
-            <a href="{% url 'login' %}">login</a>
+            <div class="d-flex align-items-center">
+                <div class="container text-center">
+                    <h1>Search your favourite movies!</h1>
+                    <p>Let's get started by signing up.</p>
+                    <a href="{% url 'accounts:signup' %}"
+                       class="btn btn-primary btn-rounded" role="button">
+                        <span><strong>Sign Up Now</strong></span>
+                    </a>
+                </div>
+            </div>
         {% endif %}
     </div>
 {% endblock %}
