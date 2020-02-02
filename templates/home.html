@@ -7,19 +7,21 @@
 
 {% block content %}
     <div class="container text-left">
-        {% if user.is_authenticated %}
-            <p>Hi {{ user.username }}</p>
-        {% else %}
-            <div class="d-flex align-items-center">
-                <div class="container text-center">
+        <div class="d-flex align-items-center">
+            <div class="container text-center">
+                {% if user.is_authenticated %}
+                    <h1>Hi {{ user.username }}!</h1>
+                    <p>You are already signed in!</p>
+                {% else %}
                     <h1>Search your favourite movies!</h1>
                     <p>Let's get started by signing up.</p>
                     <a href="{% url 'accounts:signup' %}"
                        class="btn btn-primary btn-rounded" role="button">
                         <span><strong>Sign Up Now</strong></span>
                     </a>
-                </div>
+
+                {% endif %}
             </div>
-        {% endif %}
+        </div>
     </div>
 {% endblock %}
