@@ -1,18 +1,27 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}
     Home
 {% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}"/>
+{% endblock %}
+
 {% block content %}
     <div class="container text-left">
         <div class="d-flex align-items-center">
-            <div class="container text-center">
+            <div class="container">
                 {% if user.is_authenticated %}
-                    <form action="{% url 'movies:search_results' %}" method="get">
-                        <input name="q" type="text" placeholder="Search...">
+                    
+                    <form class="form-inline d-flex justify-content-center active-blue"
+                          action="{% url 'movies:search_results' %}" method="get">
+                        <input class="form-control mr-3 w-50" type="text" name="m" placeholder="Search..."
+                               aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
                     </form>
+
                 {% else %}
                     <h1>Search your favourite movies!</h1>
                     <p>Let's get started by signing up.</p>
