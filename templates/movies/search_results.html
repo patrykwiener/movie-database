@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load custom_tags %}
+{% load static %}
 
 {% block title %}
     Home
@@ -8,35 +10,54 @@
 {% block content %}
     <div class="container text-left">
         <div class="d-flex align-items-center">
-            <div class="container text-center">
-                <h1>Results</h1>
-                {% for object in object_list %}
-                    <p>{{ object.title }}</p>
-                {% endfor %}
+            <div class="container text-left">
+                {% if object_list %}
+
+                    <h3 style="margin-bottom: 40px">Searched by "{{ title }}"</h3>
+
+                    {% for object in object_list %}
+                        <div class="jumbotron container text-center p-2 ">
+
+                            <div class="row ">
+
+                                <div class="col-md-4 offset-md-1 mx-2 my-2">
+
+                                    <div class="view hoverable overlay"
+                                         style="position: relative; display: inline-block;">
+                                        <img src="{{ object.poster }}"
+                                             class="img-fluid"
+                                             alt="Movie cover." style="display: block; max-height: 200px">
+                                        <a>
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-7 text-md-left ml-3 mt-3">
+
+                                    <h5 class="mb-4"><b>{{ object.title }}</b> ({{ object.year }})</h5>
+
+                                    <a class="btn btn-success">Read more</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+                {% else %}
+                    <h3>Nothing to show!</h3>
+                    <p>You have searched for "{{ title }}".</p>
+                {% endif %}
             </div>
         </div>
     </div>
 
-    {% if is_paginated %}
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-                <li class="disabled"><span>&laquo;</span></li>
-            {% endif %}
-            {% for i in paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                {% else %}
-                    <li><a href="?page={{ i }}">{{ i }}</a></li>
-                {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-            {% else %}
-                <li class="disabled"><span>&raquo;</span></li>
-            {% endif %}
-        </ul>
-    {% endif %}
 
+{% endblock %}
+
+{% block paginator %}
+    {% include "pagination.html" %}
 {% endblock %}

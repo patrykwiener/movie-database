@@ -27,7 +27,7 @@ class OMDBApi:
         :return: all movies corresponding to the given title
         """
         all_movies = []
-        for page in range(100):
+        for page in range(1, 101):
             current_movie_page = self.search_movies(title, page)
             all_movies.extend(current_movie_page)
             if len(current_movie_page) < 10:
@@ -90,3 +90,6 @@ class OMDBApi:
         :return: given string in camel case
         """
         return re.sub('([a-z0-9])([A-Z])', r'\1_\2', name).lower()
+
+
+client = OMDBApi('da952bfb')
