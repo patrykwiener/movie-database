@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.views import View
 
-from apps.movies.models import FavouritesMoviesModel
+from apps.movies.models import FavouriteMoviesModel
 
 
 class AddToFavouritesView(LoginRequiredMixin, View):
@@ -21,11 +21,11 @@ class AddToFavouritesView(LoginRequiredMixin, View):
                 "added_to_favourites": False
             }))
 
-        movie_queryset = FavouritesMoviesModel.objects.filter(user=request.user, imdb_id=imdb_id)
+        movie_queryset = FavouriteMoviesModel.objects.filter(user=request.user, imdb_id=imdb_id)
         if movie_queryset.exists():
             movie_queryset.delete()
         else:
-            FavouritesMoviesModel.objects.create(
+            FavouriteMoviesModel.objects.create(
                 user=request.user,
                 imdb_id=imdb_id,
                 title=title,
