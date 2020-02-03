@@ -1,0 +1,1 @@
+from apps.movies.models.favourite_movies import FavouriteMoviesModel

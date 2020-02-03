@@ -1,0 +1,152 @@
+[
+  {
+    "model": "users.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$69gQbeWfHARO$NF97BbmhOTTrrAxT/HgrNfedDFYkwzpobnbCZl1cjIg=",
+      "last_login": "2020-02-03T01:23:07.955Z",
+      "is_superuser": true,
+      "username": "root",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2020-02-02T23:39:56.968Z",
+      "email": "root@domain.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 12,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0491721",
+      "title": "Inside 'Harry Potter and the Goblet of Fire'",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ0MzMzNGMtYTI2OC00NDlkLWE5NzItY2RiYTEwOTI1MjM2XkEyXkFqcGdeQXVyMjk2MTQxMzg@._V1_SX300.jpg",
+      "year": 2005
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 14,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt1201607",
+      "title": "Harry Potter and the Deathly Hallows: Part 2",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg",
+      "year": 2011
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 15,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0295297",
+      "title": "Harry Potter and the Chamber of Secrets",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_SX300.jpg",
+      "year": 2002
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 16,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0373889",
+      "title": "Harry Potter and the Order of the Phoenix",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTM0NTczMTUzOV5BMl5BanBnXkFtZTYwMzIxNTg3._V1_SX300.jpg",
+      "year": 2007
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 17,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0304141",
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTY4NTIwODg0N15BMl5BanBnXkFtZTcwOTc0MjEzMw@@._V1_SX300.jpg",
+      "year": 2004
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 18,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0417741",
+      "title": "Harry Potter and the Half-Blood Prince",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzU3NDg4NTAyNV5BMl5BanBnXkFtZTcwOTg2ODg1Mg@@._V1_SX300.jpg",
+      "year": 2009
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 19,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt3731688",
+      "title": "Harry Potter and the Escape from Gringotts",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTJmOTRjMDEtMjg1YS00YzJjLTk5MWYtZmQzMTBiNGQxYzZhXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg",
+      "year": 2014
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 20,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt1756545",
+      "title": "Harry Potter and the Forbidden Journey",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDM0YzMyNGUtMTU1Yy00OTE2LWE5NzYtZDZhMTBmN2RkNjg3XkEyXkFqcGdeQXVyMzU5NjU1MDA@._V1_SX300.jpg",
+      "year": 2010
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 21,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0120737",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+      "year": 2001
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 22,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0167260",
+      "title": "The Lord of the Rings: The Return of the King",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      "year": 2003
+    }
+  },
+  {
+    "model": "movies.favouritemoviesmodel",
+    "pk": 23,
+    "fields": {
+      "user": 1,
+      "imdb_id": "tt0167261",
+      "title": "The Lord of the Rings: The Two Towers",
+      "movie_type": "movie",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGE5MzIyNTAtNWFlMC00NDA2LWJiMjItMjc4Yjg1OWM5NzhhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      "year": 2002
+    }
+  }
+]

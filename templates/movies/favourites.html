@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+{% load static %}
+
+{% block title %}
+    Favourites
+{% endblock %}
+
+{% block content %}
+    <div class="container text-left">
+        <div class="d-flex align-items-center">
+            <div class="container text-left">
+                {% if object_list %}
+
+                    <h3 style="margin-bottom: 40px">Your favourite movies</h3>
+
+                    {% for object in object_list %}
+                        <div class="jumbotron container text-center p-2 ">
+
+                            <div class="row ">
+
+                                <div class="col-md-4 offset-md-1 mx-2 my-2">
+
+                                    <div class="view hoverable overlay"
+                                         style="position: relative; display: inline-block;">
+                                        <img src="{{ object.poster_url }}"
+                                             class="img-fluid"
+                                             alt="Movie cover." style="display: block; max-height: 200px">
+                                        <a>
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-7 text-md-left ml-3 mt-3">
+
+                                    <h5 class="mb-4"><b>{{ object.title }}</b> ({{ object.year }})</h5>
+
+                                    <a class="btn btn-success">Read more</a>
+                                    <a href="{% url 'movies:delete_favourite' object.id %}" class="btn btn-danger">Delete</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+                {% else %}
+                    <h3>Nothing to show!</h3>
+                    <p>You don't have any favourite movies.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block paginator %}
+    {% include "pagination.html" %}
+{% endblock %}
