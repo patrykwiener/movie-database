@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block title %}
-    Searched Movies
+    Favourites
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
             <div class="container text-left">
                 {% if object_list %}
 
-                    <h3 style="margin-bottom: 40px">Searched by "{{ title }}"</h3>
+                    <h3 style="margin-bottom: 40px">Your favourite movies</h3>
 
                     {% for object in object_list %}
                         <div class="jumbotron container text-center p-2 ">
@@ -24,7 +24,7 @@
 
                                     <div class="view hoverable overlay"
                                          style="position: relative; display: inline-block;">
-                                        <img src="{{ object.poster }}"
+                                        <img src="{{ object.poster_url }}"
                                              class="img-fluid"
                                              alt="Movie cover." style="display: block; max-height: 200px">
                                         <a>
@@ -39,15 +39,7 @@
                                     <h5 class="mb-4"><b>{{ object.title }}</b> ({{ object.year }})</h5>
 
                                     <a class="btn btn-success">Read more</a>
-                                    {% if object.imdb_id in favourites %}
-                                        <a id="{{ object.imdb_id }}" class="btn btn-warning"
-                                           data-value="{{ object.title }};;{{ object.type }};;{{ object.poster }};;{{ object.year }}"
-                                           onclick="addToFavourites(this)">Added to Favourites</a>
-                                    {% else %}
-                                        <a id="{{ object.imdb_id }}" class="btn btn-light"
-                                           data-value="{{ object.title }};;{{ object.type }};;{{ object.poster }};;{{ object.year }}"
-                                           onclick="addToFavourites(this)">Add to Favourites</a>
-                                    {% endif %}
+                                    <a href="#" class="btn btn-danger">Delete</a>
 
                                 </div>
 
@@ -58,7 +50,7 @@
                     {% endfor %}
                 {% else %}
                     <h3>Nothing to show!</h3>
-                    <p>You have searched for "{{ title }}, but nothing found".</p>
+                    <p>You don't have any favourite movies.</p>
                 {% endif %}
             </div>
         </div>
@@ -69,8 +61,4 @@
 
 {% block paginator %}
     {% include "pagination.html" %}
-{% endblock %}
-
-{% block javascript %}
-    <script src={% static 'js/favourite.js' %}></script>
 {% endblock %}

@@ -19,10 +19,24 @@ function changeFavouritesButton(obj) {
 }
 
 function addToFavourites(obj) {
+    var dataArray = obj.getAttribute("data-value").split(";;");
+
+    var title = dataArray[0];
+    var type = dataArray[1];
+    var poster = dataArray[2];
+    var year = dataArray[3];
+    var imdb_id = obj.id;
+
     $.ajax({
         url: '../add-favourites/',
         type: "GET",
-        data: {'imdb_id': obj.id}
+        data: {
+            'imdb_id': imdb_id,
+            'title': title,
+            'type': type,
+            'poster': poster,
+            'year': year
+        }
     }).done(function (returned_data) {
         var response_data = JSON.parse(returned_data);
         if (response_data.hasOwnProperty("added_to_favourites")) {
