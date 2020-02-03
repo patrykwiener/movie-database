@@ -1,3 +1,4 @@
+"""This module contains DeleteFromFavouritesView class representing favourite movie remove page."""
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
@@ -7,6 +8,7 @@ from apps.movies.models import FavouriteMoviesModel
 
 
 class DeleteFromFavouritesView(LoginRequiredMixin, DeleteView):
+    """Represents a particular favourite movie remove page."""
     template_name = 'movies/delete_favourite.html'
     model = FavouriteMoviesModel
     success_url = reverse_lazy('movies:favourites')

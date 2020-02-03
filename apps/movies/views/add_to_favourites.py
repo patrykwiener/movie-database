@@ -1,3 +1,4 @@
+"""This module contains AddToFavouritesView class handling adding and removing from favourites."""
 import json
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,15 +9,21 @@ from apps.movies.models import FavouriteMoviesModel
 
 
 class AddToFavouritesView(LoginRequiredMixin, View):
+    """Adds or removes favourites movies."""
+
+    def get_request_param(self, param: str):
+        """Gets param form request."""
+        return self.request[param]
 
     def get(self, request):
-        imdb_id = request.GET['imdb_id']
-        title = request.GET['title']
-        movie_type = request.GET['type']
-        poster_url = request.GET['poster']
-        year = int(request.GET['year'])
+        """Handles GET request. Adds movie to favourites or when its already in database, removes it."""
+        imdb_id = self.get_request_param('imdb_id')
+        title = self.get_request_param('title')
+        movie_type = self.get_request_param('type')
+        poster_url = self.get_request_param('poster')
+        year = self.get_request_param('year')
 
-        if not imdb_id:
+        if not imdb_id or not title or not movie_type or not poster_url or not year:
             return HttpResponse(json.dumps({
                 "added_to_favourites": False
             }))

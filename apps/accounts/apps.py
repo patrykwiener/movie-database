@@ -1,4 +1,4 @@
-"""This module contains ImageConfig class."""
+"""This module contains AccountsConfig class."""
 from django.apps import AppConfig
 
 
