@@ -1,9 +1,11 @@
 """This module contains OMDBApi class representing OMDbApi service wrapper."""
 import re
 from collections import namedtuple
-from typing import List
+from typing import List, Union
 
 import requests
+
+API_KEY = 'da952bfb'
 
 
 class OMDBApi:
@@ -17,6 +19,21 @@ class OMDBApi:
         """Requires OMDbApi key."""
         self._api_key = api_key
         self._session = requests.Session()
+        self._default_params = {
+            'apikey': self._api_key,
+            'type': 'movie',
+        }
+
+    def get(self, params: dict) -> Union[List[object], object]:
+        """
+        Sends get request to OMDb api.
+
+        :param params: request params
+        :return: object or list of object from response converted to python objects
+        """
+        params.update(self._default_params)
+        response = self._session.get(self.URL, params=params).json()
+        return self.convert_response(response, params)
 
     def search_all_movies(self, title: str) -> List[object]:
         """
@@ -43,16 +60,36 @@ class OMDBApi:
         :return: list of movie objects
         """
         params = {
-            'apikey': self._api_key,
             's': title,
             'page': page,
-            'type': 'movie'
         }
-        response = self._session.get(self.URL, params=params).json()
+        return self.get(params)
 
-        return self.convert_response(response)
+    def search_movie_by_id(self, imdb_id: str) -> object:
+        """
+        Searches for a particular movie by the given imdb_id.
 
-    def convert_response(self, response: dict) -> List[object]:
+        :param imdb_id: unique movie id
+        :return: found movie object
+        """
+        params = {
+            'i': imdb_id,
+        }
+        return self.get(params)
+
+    def convert_response(self, response: Union[dict, List[dict]], params: dict) -> Union[List[object], object]:
+        """
+        Converts request response to object oriented structures.
+
+        :param response: request response
+        :param params: request params
+        :return: object or list of object from response
+        """
+        if 's' in params:
+            return self.convert_response_list(response)
+        return self.convert_to_object(response)
+
+    def convert_response_list(self, response: dict) -> List[object]:
         """
         Converts response dict to list of objects.
 
@@ -92,4 +129,4 @@ class OMDBApi:
         return re.sub('([a-z0-9])([A-Z])', r'\1_\2', name).lower()
 
 
-client = OMDBApi('da952bfb')
+client = OMDBApi(API_KEY)
