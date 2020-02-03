@@ -27,7 +27,7 @@ The account credentials:
 * username: root
 * password: root
 
-You can also create own user by filling up the registration form or by typing:
+You can also create your own user by filling up the registration form or by typing:
 ```bash
 # create superuser
 docker-compose exec web python /code/manage.py createsuperuser
